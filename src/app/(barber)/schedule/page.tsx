@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Button,
   Avatar,
   Badge,
-  Toggle,
+  Checkbox,
 } from "@heroui/react"
 
 const todayBookings = [
@@ -30,8 +30,8 @@ export default function BarberPanelPage() {
 
         <div className="flex flex-col gap-4">
           {todayBookings.map((b) => (
-            <Card key={b.id} className="border-border">
-              <CardBody className="p-4 flex flex-row justify-between items-center">
+            <CardRoot key={b.id} className="border-border">
+              <CardContent className="p-4 flex flex-row justify-between items-center">
                 <div className="flex items-center gap-3">
                   <Avatar name={b.customer} color="primary" />
                   <div>
@@ -39,7 +39,7 @@ export default function BarberPanelPage() {
                       {b.customer} · {b.service}
                     </p>
                     <p className="text-sm text-text-secondary">{b.time}</p>
-                    <Badge color="primary" variant="flat" size="sm">
+                    <Badge color="primary" variant="soft" size="sm">
                       Kunjungan: {b.visits}/10
                     </Badge>
                   </div>
@@ -47,14 +47,14 @@ export default function BarberPanelPage() {
                 <Button color="success" variant="light" size="sm">
                   Selesai
                 </Button>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
 
         <div className="flex items-center gap-3 pt-4 border-t border-border">
           <span className="font-medium">⚡ Tersedia</span>
-          <Toggle
+          <Checkbox
             isSelected={available}
             onValueChange={setAvailable}
             color="primary"

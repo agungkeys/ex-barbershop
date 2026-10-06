@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Input,
   Table,
   TableHeader,
@@ -14,7 +14,6 @@ import {
   Button,
   Chip,
   Badge,
-  Progress,
 } from "@heroui/react"
 
 const members = [
@@ -31,17 +30,11 @@ export default function AdminMembersPage() {
     m.name.toLowerCase().includes(search.toLowerCase())
   )
 
-  const tierColor: Record<string, "default" | "primary" | "membership"> = {
-    Basic: "default",
-    Premium: "primary",
-    VIP: "membership",
-  }
-
   return (
     <main className="min-h-screen bg-white">
       <nav className="flex items-center justify-between px-6 py-4 border-b border-default-200">
         <h1 className="text-xl font-bold font-display">👥 Member Management</h1>
-        <Button color="primary" className="bg-primary text-white" size="sm">
+        <Button className="bg-primary text-white" size="sm">
           + Tambah Member
         </Button>
       </nav>
@@ -50,7 +43,6 @@ export default function AdminMembersPage() {
         <Input
           label="Cari member..."
           placeholder="Ketik nama..."
-          variant="bordered"
           fullWidth
           radius="lg"
           value={search}
@@ -58,8 +50,8 @@ export default function AdminMembersPage() {
           className="max-w-md"
         />
 
-        <Card className="border-border">
-          <CardBody className="p-0">
+        <CardRoot className="border-border">
+          <CardContent className="p-0">
             <Table aria-label="Member tracking table">
               <TableHeader>
                 <TableColumn>Nama</TableColumn>
@@ -73,38 +65,38 @@ export default function AdminMembersPage() {
                   <TableRow key={m.id}>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <Badge color="primary" variant="flat" size="sm">
+                        <Badge variant="soft" size="sm">
                           {m.visits}/{m.maxVisits}
                         </Badge>
                         <span className="font-medium">{m.name}</span>
                       </div>
-                      <Progress
-                        value={(m.visits / m.maxVisits) * 100}
-                        color="primary"
-                        className="max-w-[120px] mt-1"
-                        size="sm"
-                      />
+                      <div className="w-[120px] h-2 bg-default-200 rounded-full overflow-hidden mt-1">
+                        <div
+                          className="h-full bg-primary rounded-full"
+                          style={{ width: `${(m.visits / m.maxVisits) * 100}%` }}
+                        />
+                      </div>
                     </TableCell>
                     <TableCell>
-                      <Chip color={tierColor[m.tier] as any} variant="flat" size="sm">
+                      <Chip variant="soft" size="sm">
                         {m.tier}
                       </Chip>
                     </TableCell>
                     <TableCell>
                       {m.status === "free" ? (
-                        <Badge color="success" variant="flat">✅ Gratis</Badge>
+                        <Badge color="success" variant="soft">✅ Gratis</Badge>
                       ) : m.status === "expired" ? (
-                        <Badge color="danger" variant="flat">Expired</Badge>
+                        <Badge color="danger" variant="soft">Expired</Badge>
                       ) : (
-                        <Badge color="primary" variant="flat">Active</Badge>
+                        <Badge variant="soft">Active</Badge>
                       )}
                     </TableCell>
                     <TableCell>
                       <div className="flex gap-2">
-                        <Button size="sm" variant="light" color="primary">
+                        <Button size="sm" variant="ghost" color="primary">
                           Detail
                         </Button>
-                        <Button size="sm" variant="light" color="warning">
+                        <Button size="sm" variant="ghost" color="warning">
                           Edit
                         </Button>
                       </div>
@@ -113,8 +105,8 @@ export default function AdminMembersPage() {
                 ))}
               </TableBody>
             </Table>
-          </CardBody>
-        </Card>
+          </CardContent>
+        </CardRoot>
       </section>
     </main>
   )

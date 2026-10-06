@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Button,
   Table,
   TableHeader,
@@ -40,8 +40,8 @@ export default function AdminProductsPage() {
       </nav>
 
       <section className="max-w-7xl mx-auto px-4 py-6">
-        <Card className="border-border">
-          <CardBody className="p-0">
+        <CardRoot className="border-border">
+          <CardContent className="p-0">
             <Table aria-label="Products table">
               <TableHeader>
                 <TableColumn>Gambar</TableColumn>
@@ -58,12 +58,12 @@ export default function AdminProductsPage() {
                     <TableCell className="font-medium">{p.name}</TableCell>
                     <TableCell>Rp {p.price.toLocaleString()}</TableCell>
                     <TableCell>
-                      <Chip color={p.stock > 0 ? "success" : "danger"} variant="flat" size="sm">
+                      <Chip color={p.stock > 0 ? "success" : "danger"} variant="soft" size="sm">
                         {p.stock}
                       </Chip>
                     </TableCell>
                     <TableCell>
-                      <Chip variant="bordered" size="sm">
+                      <Chip variant="flat" size="sm">
                         {p.category}
                       </Chip>
                     </TableCell>
@@ -81,8 +81,8 @@ export default function AdminProductsPage() {
                 ))}
               </TableBody>
             </Table>
-          </CardBody>
-        </Card>
+          </CardContent>
+        </CardRoot>
       </section>
 
       {/* Add Product Modal */}
@@ -90,10 +90,10 @@ export default function AdminProductsPage() {
         <ModalContent>
           <ModalHeader>Tambah Produk</ModalHeader>
           <ModalBody>
-            <Input label="Nama Produk" variant="bordered" />
-            <Input label="Harga" variant="bordered" type="number" />
-            <Input label="Stok" variant="bordered" type="number" />
-            <Input label="Kategori" variant="bordered" />
+            <Input label="Nama Produk" variant="flat" />
+            <Input label="Harga" variant="flat" type="number" />
+            <Input label="Stok" variant="flat" type="number" />
+            <Input label="Kategori" variant="flat" />
           </ModalBody>
           <ModalFooter>
             <Button variant="light" onPress={() => setIsModalOpen(false)}>

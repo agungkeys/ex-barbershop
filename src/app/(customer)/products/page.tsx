@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Chip,
   Input,
   Button,
@@ -41,7 +41,7 @@ export default function ProductListPage() {
         <Input
           label="Cari produk..."
           placeholder="Ketik di sini..."
-          variant="bordered"
+          variant="flat"
           fullWidth
           radius="lg"
           className="mb-4"
@@ -65,11 +65,11 @@ export default function ProductListPage() {
         {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {filtered.map((product) => (
-            <Card
+            <CardRoot
               key={product.id}
               className="shadow-sm hover:shadow-lg transition-shadow cursor-pointer"
             >
-              <CardBody className="p-4 flex flex-col items-center text-center">
+              <CardContent className="p-4 flex flex-col items-center text-center">
                 <div className="w-24 h-24 rounded-2xl bg-surface flex items-center justify-center text-4xl mb-3">
                   {product.image}
                 </div>
@@ -78,7 +78,7 @@ export default function ProductListPage() {
                 <Chip
                   size="sm"
                   color={product.stock > 0 ? "success" : "danger"}
-                  variant="flat"
+                  variant="soft"
                   className="mt-2"
                 >
                   {product.stock > 0 ? `Stok: ${product.stock}` : "Habis"}
@@ -92,8 +92,8 @@ export default function ProductListPage() {
                 >
                   Beli
                 </Button>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
       </section>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, CardBody } from '@heroui/react'
+import { Button, CardRoot, CardContent } from '@heroui/react'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -32,16 +32,16 @@ export default function HomePage() {
         <h3 className="text-2xl font-semibold text-foreground mb-6">Pilih Barber</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {['Hendra', 'Rizal', 'Budi'].map((name) => (
-            <Card key={name} className="shadow-sm hover:shadow-lg transition-shadow">
-              <CardBody className="p-6 text-center">
+            <CardRoot key={name} className="shadow-sm hover:shadow-lg transition-shadow">
+              <CardContent className="p-6 text-center">
                 <div className="w-20 h-20 rounded-full bg-default-200 mx-auto mb-4" />
                 <h4 className="text-lg font-semibold text-foreground">{name}</h4>
                 <p className="text-default-500 text-sm">Potong · Cukur · Styling</p>
                 <Button color="primary" className="mt-4" as={Link} href="/booking">
                   Pilih
                 </Button>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
       </section>

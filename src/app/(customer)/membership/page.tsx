@@ -1,4 +1,4 @@
-import { Card, CardBody, Button, Badge } from "@heroui/react"
+import { CardRoot, CardContent, Button, Badge } from "@heroui/react"
 import Link from "next/link"
 
 const tiers = [
@@ -44,13 +44,13 @@ export default function MembershipPage() {
       <section className="max-w-5xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {tiers.map((tier) => (
-            <Card
+            <CardRoot
               key={tier.key}
               className={`shadow-sm border-border ${tier.popular ? "border-2 border-primary" : ""}`}
             >
-              <CardBody className="p-6 flex flex-col gap-4 items-center text-center">
+              <CardContent className="p-6 flex flex-col gap-4 items-center text-center">
                 {tier.popular && (
-                  <Badge color="primary" variant="flat" className="mb-2">
+                  <Badge color="primary" variant="soft" className="mb-2">
                     POPULAR
                   </Badge>
                 )}
@@ -65,8 +65,8 @@ export default function MembershipPage() {
                 >
                   Pilih
                 </Button>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
       </section>

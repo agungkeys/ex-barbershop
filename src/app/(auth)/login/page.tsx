@@ -1,12 +1,12 @@
-import { Button, Input, Card, CardBody, Link } from "@heroui/react"
+import { Button, Input, CardRoot, CardContent, Link } from "@heroui/react"
 import { GoogleIcon } from "@/components/icons"
 import Link from "next/link"
 
 export default function LoginPage() {
   return (
     <main className="min-h-screen bg-white flex items-center justify-center px-4">
-      <Card className="w-full max-w-sm shadow-lg border border-default-200">
-        <CardBody className="p-8 flex flex-col items-center gap-6">
+      <CardRoot className="w-full max-w-sm shadow-lg border border-default-200">
+        <CardContent className="p-8 flex flex-col items-center gap-6">
           {/* Logo */}
           <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-2">
             <span className="text-3xl">✂️</span>
@@ -16,7 +16,7 @@ export default function LoginPage() {
           {/* Google OAuth */}
           <Button
             fullWidth
-            variant="bordered"
+            variant="flat"
             color="default"
             className="justify-start bg-white text-foreground border-border hover:bg-surface"
             startContent={<GoogleIcon />}
@@ -35,7 +35,7 @@ export default function LoginPage() {
           <Input
             label="Email"
             placeholder="your@email.com"
-            variant="bordered"
+            variant="flat"
             fullWidth
             radius="md"
           />
@@ -44,7 +44,7 @@ export default function LoginPage() {
           <Input
             label="Password"
             placeholder="••••••••"
-            variant="bordered"
+            variant="flat"
             fullWidth
             radius="md"
             type="password"
@@ -67,8 +67,8 @@ export default function LoginPage() {
               Sign Up
             </Link>
           </p>
-        </CardBody>
-      </Card>
+        </CardContent>
+      </CardRoot>
     </main>
   )
 }

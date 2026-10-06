@@ -5,10 +5,8 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Card,
-  CardBody,
-  Select,
-  SelectItem,
+  CardRoot,
+  CardContent,
   Input,
   Divider,
 } from "@heroui/react"
@@ -50,8 +48,8 @@ export default function BookingModal({
             </ModalHeader>
             <ModalBody>
               {/* Barber Info */}
-              <Card className="bg-surface border-border">
-                <CardBody className="p-4">
+              <CardRoot className="bg-surface border-border">
+                <CardContent className="p-4">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">⚡</span>
                     <div>
@@ -73,27 +71,20 @@ export default function BookingModal({
                       </span>
                     </div>
                   </div>
-                </CardBody>
-              </Card>
+                </CardContent>
+              </CardRoot>
 
-              {/* Membership Select */}
-              <Select
-                label="Membership"
-                placeholder="Pilih tier"
-                variant="bordered"
+              {/* Membership Select - Native */}
+              <select
                 value={membership}
                 onChange={(e) => setMembership(e.target.value)}
+                className="w-full px-3 py-2 border border-default-200 rounded-lg bg-white text-foreground"
               >
-                <SelectItem key="basic" value="basic">
-                  Basic (3 Bulan) — 5% off
-                </SelectItem>
-                <SelectItem key="premium" value="premium">
-                  Premium (6 Bulan) — 10% off
-                </SelectItem>
-                <SelectItem key="vip" value="vip">
-                  VIP (12 Bulan) — 15% off
-                </SelectItem>
-              </Select>
+                <option value="">Pilih tier</option>
+                <option value="basic">Basic (3 Bulan) — 5% off</option>
+                <option value="premium">Premium (6 Bulan) — 10% off</option>
+                <option value="vip">VIP (12 Bulan) — 15% off</option>
+              </select>
 
               {/* Date & Time */}
               <Input label="Tanggal" variant="bordered" type="date" />

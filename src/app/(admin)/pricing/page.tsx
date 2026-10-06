@@ -1,4 +1,4 @@
-import { Card, CardBody, Input, Button } from "@heroui/react"
+import { CardRoot, CardContent, Input, Button } from "@heroui/react"
 
 const tiers = [
   { name: "Basic", duration: "3 Bulan", price: 150000, discount: 5 },
@@ -15,22 +15,22 @@ export default function AdminPricingPage() {
 
       <section className="max-w-4xl mx-auto px-4 py-8 flex flex-col gap-6">
         {tiers.map((tier) => (
-          <Card key={tier.name} className="border-border">
-            <CardBody className="p-6 flex flex-col gap-4">
+          <CardRoot key={tier.name} className="border-border">
+            <CardContent className="p-6 flex flex-col gap-4">
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-bold font-display">{tier.name} ({tier.duration})</h3>
               </div>
               <div className="flex gap-4">
                 <Input
                   label="Harga (Rp)"
-                  variant="bordered"
+                  variant="flat"
                   type="number"
                   defaultValue={tier.price.toString()}
                   className="max-w-xs"
                 />
                 <Input
                   label="Diskon (%)"
-                  variant="bordered"
+                  variant="flat"
                   type="number"
                   defaultValue={tier.discount.toString()}
                   className="max-w-xs"
@@ -39,8 +39,8 @@ export default function AdminPricingPage() {
               <Button color="primary" className="bg-primary text-white" size="sm">
                 Simpan
               </Button>
-            </CardBody>
-          </Card>
+            </CardContent>
+          </CardRoot>
         ))}
       </section>
     </main>

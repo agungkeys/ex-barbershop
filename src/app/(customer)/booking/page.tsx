@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Button,
   Input,
   Chip,
@@ -49,7 +49,7 @@ export default function HomePage() {
         <Input
           label="Cari barber atau jasa..."
           placeholder="Ketik di sini..."
-          variant="bordered"
+          variant="flat"
           fullWidth
           radius="lg"
           className="mb-4"
@@ -72,8 +72,8 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {activeTab === "barber"
             ? barbers.map((barber, i) => (
-                <Card key={barber.id} className="shadow-sm hover:shadow-lg transition-shadow">
-                  <CardBody className="p-6 text-center">
+                <CardRoot key={barber.id} className="shadow-sm hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 text-center">
                     <Avatar name={barber.name} color="primary" className="w-20 h-20 mx-auto mb-4" />
                     <h3 className="text-lg font-semibold text-foreground font-display">{barber.name}</h3>
                     <p className="text-text-secondary text-sm">⭐ {barber.rating} · {barber.specialties}</p>
@@ -81,12 +81,12 @@ export default function HomePage() {
                     <Button color="primary" className="mt-4 bg-primary text-white" as={Link} href="/booking" size="sm">
                       Book Now
                     </Button>
-                  </CardBody>
-                </Card>
+                  </CardContent>
+                </CardRoot>
               ))
             : services.map((service, i) => (
-                <Card key={service.id} className="shadow-sm hover:shadow-lg transition-shadow">
-                  <CardBody className="p-6 text-center">
+                <CardRoot key={service.id} className="shadow-sm hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 text-center">
                     <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 text-2xl">
                       ✂️
                     </div>
@@ -96,8 +96,8 @@ export default function HomePage() {
                     <Button color="primary" className="mt-4 bg-primary text-white" as={Link} href="/booking" size="sm">
                       Pilih
                     </Button>
-                  </CardBody>
-                </Card>
+                  </CardContent>
+                </CardRoot>
               ))}
         </div>
       </section>

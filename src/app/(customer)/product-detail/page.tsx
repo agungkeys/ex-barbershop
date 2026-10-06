@@ -1,6 +1,6 @@
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Button,
   Badge,
   Image,
@@ -56,18 +56,18 @@ export default function ProductDetailPage() {
               <span className="text-text-secondary text-sm">({product.reviews} ulasan)</span>
             </div>
             <p className="text-2xl font-bold text-primary">Rp {product.price.toLocaleString()}</p>
-            <Badge color={product.stock > 0 ? "success" : "danger"} variant="flat">
+            <Badge color={product.stock > 0 ? "success" : "danger"} variant="soft">
               {product.stock > 0 ? `Stok: ${product.stock}` : "Habis"}
             </Badge>
             <p className="text-foreground/80">{product.description}</p>
 
             {/* Qty Selector */}
             <div className="flex items-center gap-3">
-              <Button variant="bordered" size="sm" onPress={() => setQty((q) => Math.max(1, q - 1))}>
+              <Button variant="flat" size="sm" onPress={() => setQty((q) => Math.max(1, q - 1))}>
                 −
               </Button>
               <span className="font-medium w-8 text-center">{qty}</span>
-              <Button variant="bordered" size="sm" onPress={() => setQty((q) => q + 1)}>
+              <Button variant="flat" size="sm" onPress={() => setQty((q) => q + 1)}>
                 +
               </Button>
             </div>
@@ -83,16 +83,16 @@ export default function ProductDetailPage() {
         <h2 className="text-xl font-bold font-display mb-4">Ulasan</h2>
         <div className="flex flex-col gap-3">
           {reviews.map((r) => (
-            <Card key={r.id} className="bg-surface border-border">
-              <CardBody className="p-4 flex flex-row gap-3 items-start">
+            <CardRoot key={r.id} className="bg-surface border-border">
+              <CardContent className="p-4 flex flex-row gap-3 items-start">
                 <Avatar name={r.user} size="sm" />
                 <div>
                   <p className="font-medium text-sm">{r.user}</p>
                   <p className="text-warning text-sm">{"⭐".repeat(r.rating)}</p>
                   <p className="text-text-secondary text-sm">{r.comment}</p>
                 </div>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
       </section>

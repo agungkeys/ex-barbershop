@@ -1,8 +1,8 @@
 "use client"
 
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Avatar,
   Button,
   Progress,
@@ -43,29 +43,29 @@ export default function MemberAreaPage() {
 
         {/* Stat Cards */}
         <div className="grid grid-cols-3 gap-4">
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <p className="text-2xl font-bold text-primary">{visits}</p>
               <p className="text-xs text-text-secondary">Kunjungan</p>
-            </CardBody>
-          </Card>
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+            </CardContent>
+          </CardRoot>
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <Badge color="success" variant="flat">{membership.tier}</Badge>
               <p className="text-xs text-text-secondary mt-1">Member</p>
-            </CardBody>
-          </Card>
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+            </CardContent>
+          </CardRoot>
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <p className="text-2xl font-bold text-foreground">92</p>
               <p className="text-xs text-text-secondary">Hari Sisa</p>
-            </CardBody>
-          </Card>
+            </CardContent>
+          </CardRoot>
         </div>
 
         {/* Progress */}
-        <Card className="bg-surface border-border">
-          <CardBody className="p-4">
+        <CardRoot className="bg-surface border-border">
+          <CardContent className="p-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm font-medium">Potong Gratis</span>
               <span className="text-sm text-primary font-medium">{visits}/{maxVisits}</span>
@@ -79,12 +79,12 @@ export default function MemberAreaPage() {
             <p className="text-xs text-text-secondary mt-2">
               {maxVisits - visits} lagi dapat gratis! 🎉
             </p>
-          </CardBody>
-        </Card>
+          </CardContent>
+        </CardRoot>
 
         {/* Membership Card */}
-        <Card className="bg-surface border-border">
-          <CardBody className="p-4 flex flex-col gap-3">
+        <CardRoot className="bg-surface border-border">
+          <CardContent className="p-4 flex flex-col gap-3">
             <div className="flex justify-between items-center">
               <span className="font-medium">Membership {membership.tier}</span>
               <Badge color="success">Active</Badge>
@@ -93,16 +93,16 @@ export default function MemberAreaPage() {
             <Button color="primary" className="bg-primary text-white" size="sm">
               Perpanjang
             </Button>
-          </CardBody>
-        </Card>
+          </CardContent>
+        </CardRoot>
 
         {/* Booking History */}
         <Divider />
         <h3 className="font-bold font-display">Riwayat Booking</h3>
         <div className="flex flex-col gap-3">
           {bookings.map((b) => (
-            <Card key={b.id} className="bg-surface border-border">
-              <CardBody className="p-4 flex flex-row justify-between items-center">
+            <CardRoot key={b.id} className="bg-surface border-border">
+              <CardContent className="p-4 flex flex-row justify-between items-center">
                 <div>
                   <p className="font-medium text-foreground">{b.barber} · {b.service}</p>
                   <p className="text-xs text-text-secondary">{b.date}</p>
@@ -113,8 +113,8 @@ export default function MemberAreaPage() {
                 >
                   {b.status === "selesai" ? "✅" : "⏳"} {b.status}
                 </Badge>
-              </CardBody>
-            </Card>
+              </CardContent>
+            </CardRoot>
           ))}
         </div>
       </section>

@@ -1,8 +1,8 @@
 "use client"
 
 import {
-  Card,
-  CardBody,
+  CardRoot,
+  CardContent,
   Table,
   TableHeader,
   TableColumn,
@@ -50,24 +50,24 @@ export default function AdminDashboard() {
       <section className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-6">
         {/* Stat Cards */}
         <div className="grid grid-cols-3 gap-4">
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <p className="text-3xl font-bold text-primary">142</p>
               <p className="text-sm text-text-secondary">Total Booking</p>
-            </CardBody>
-          </Card>
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+            </CardContent>
+          </CardRoot>
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <p className="text-3xl font-bold text-success">Rp 2.5M</p>
               <p className="text-sm text-text-secondary">Revenue</p>
-            </CardBody>
-          </Card>
-          <Card className="bg-surface border-border">
-            <CardBody className="p-4 text-center">
+            </CardContent>
+          </CardRoot>
+          <CardRoot className="bg-surface border-border">
+            <CardContent className="p-4 text-center">
               <p className="text-3xl font-bold text-foreground">38</p>
               <p className="text-sm text-text-secondary">New Members</p>
-            </CardBody>
-          </Card>
+            </CardContent>
+          </CardRoot>
         </div>
 
         {/* Tabs */}
@@ -79,8 +79,8 @@ export default function AdminDashboard() {
         </Tabs>
 
         {/* Table */}
-        <Card className="border-border">
-          <CardBody className="p-0">
+        <CardRoot className="border-border">
+          <CardContent className="p-0">
             <Table aria-label="Booking table">
               <TableHeader>
                 <TableColumn>Customer</TableColumn>
@@ -98,7 +98,7 @@ export default function AdminDashboard() {
                     <TableCell>{b.service}</TableCell>
                     <TableCell>{b.date}</TableCell>
                     <TableCell>
-                      <Chip color={statusColor[b.status]} variant="flat" size="sm">
+                      <Chip color={statusColor[b.status]} variant="soft" size="sm">
                         {b.status}
                       </Chip>
                     </TableCell>
@@ -111,8 +111,8 @@ export default function AdminDashboard() {
                 ))}
               </TableBody>
             </Table>
-          </CardBody>
-        </Card>
+          </CardContent>
+        </CardRoot>
       </section>
     </main>
   )
