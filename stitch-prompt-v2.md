@@ -12,7 +12,7 @@
 - Divider "OR"
 - Email input (icon prefix)
 - Password input (toggle visibility)
-- Primary CTA "Login" (gold, full width)
+- Primary CTA "Login" (orange, full width)
 - "Don't have account? Sign Up" link
 
 **Animation:** Logo fades-in 400ms → form slides-up 300ms
@@ -26,7 +26,7 @@
 - Search bar (full width)
 - Tabs: "Barber" / "Service" / "Produk"
 - Grid: 1 col mobile, 2 tablet, 3 desktop
-- Barber Card: avatar circle, name, ⭐rating, price, "Book Now" (gold, sm)
+- Barber Card: avatar circle, name, ⭐rating, price, "Book Now" (orange, sm)
 - Service Card: icon, name, duration, price, "Pilih" button
 
 **Animation:** Cards stagger fade-in 50ms each
@@ -42,7 +42,7 @@
 - Membership tier dropdown
 - Date & time display
 - Notes textarea
-- "Batal" (outline) + "Konfirmasi" (gold)
+- "Batal" (outline) + "Konfirmasi" (orange)
 
 **Animation:** Backdrop fade + content scale(0.95→1) spring
 
@@ -53,7 +53,7 @@
 **Layout:** Back navbar, centered content
 - Avatar + name + phone
 - 3 stat cards: Total Visits, Membership (badge), Days Remaining
-- Progress bar: "7/10 potong" gold accent 70% width
+- Progress bar: "7/10 potong" orange accent 70% width
 - "3 lagi dapat gratis!" text
 - Membership tier card (VIP 12 Bulan) with expiry + "Perpanjang" button
 - Booking history list (avatar, service, date, status badge)
@@ -66,7 +66,7 @@
 
 **Layout:** Header "Pilih Membership", 3 cards horizontal
 - Basic (3 Bulan): Rp 150.000, 5% diskon, outline button
-- Premium (6 Bulan): Rp 250.000, 10% diskon, "POPULAR" badge, gold button
+- Premium (6 Bulan): Rp 250.000, 10% diskon, "POPULAR" badge, orange button
 - VIP (12 Bulan): Rp 400.000, 15% diskon, purple elevated card, purple button
 
 **Animation:** Cards scale-in stagger, "POPULAR" badge pulse
@@ -78,7 +78,7 @@
 **Layout:** Header "🛍️ Produk", search bar, filter chips
 - Chips: "Semua", "Pomade", "Aksesoris", "Shampoo"
 - Grid: 2 col mobile, 3 desktop
-- Product Card: image, name, price, stock badge, "Beli" button (gold, sm)
+- Product Card: image, name, price, stock badge, "Beli" button (orange, sm)
 
 **Animation:** Cards stagger fade-in 50ms
 
@@ -88,13 +88,13 @@
 
 **Layout:** Navbar back + cart icon, scrollable
 - Image gallery with zoom
-- Product name Space Grotesk Bold 24px
+|- Product name Poppins Bold 24px
 - ⭐ rating + review count
-- Price (gold accent)
+- Price (orange accent)
 - Stock badge (green if >0, red if 0)
 - Description text
 - Qty selector (- / 1 / +)
-- "Tambah Cart" (gold, full width)
+- "Tambah Cart" (orange, full width)
 - Review section below
 
 **Animation:** Image fade-in, price slide-up, button scale-in
@@ -118,7 +118,7 @@
 
 **Layout:** Header "👥 Member Management", search bar
 - Table: Nama | Kunjungan (progress mini-bar) | Member Tier (badge) | Status | Action
-- Tier badge: Basic=blue, Premium=gold, VIP=purple
+|- Tier badge: Basic=blue, Premium=orange, VIP=purple
 - Free cut badge: ✅ "Gratis" green
 - Detail/Edit/View action buttons
 
@@ -163,15 +163,23 @@
 
 ### Colors
 ```
-Primary: #1B1B1B    Accent: #F5A623    BG: #FAFAFA
-Surface: #FFFFFF    Border: #E5E5E5    Text: #1A1A1A
-Success: #2ECC71    Danger: #E74C3C    Warning: #F39C12
-Membership: #9B59B6
+Primary:     #D25A17   (Orange)
+Secondary:   #D25A17   (Orange)
+Accent:      #E8734A   (Lighter orange)
+BG:          #FFFFFF   (White clean)
+Surface:     #FAFAFA   (Light gray card)
+Border:      #E5E5E5
+Text:        #1A1A1A
+Text secondary: #737373
+Success:     #2ECC71
+Danger:      #E74C3C
+Warning:     #F39C12
+Membership:  #9B59B6   (VIP purple)
 ```
 
 ### Typography
-- Display: Space Grotesk Bold
-- Body: Inter Regular/Medium
+- Display: **Poppins** Bold
+- Body: **Poppins** Regular/Medium
 - Mono: JetBrains Mono
 
 ### HeroUI Components Used
