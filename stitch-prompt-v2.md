@@ -1,285 +1,204 @@
 # Google Stitch Prompt — Barbershop Booking App v2.0
 
-## Design Tokens
-
-### Colors
-```
---color-primary:     #1B1B1B   (Near Black)
---color-accent:      #F5A623   (Warm Gold)
---color-accent-hover:#E0951F
---color-bg:          #FAFAFA
---color-surface:     #FFFFFF
---color-border:      #E5E5E5
---color-text:        #1A1A1A
---color-text-secondary: #737373
---color-success:     #2ECC71
---color-danger:      #E74C3C
---color-warning:     #F39C12
---color-membership:  #9B59B6   (VIP purple)
-```
-
-### Typography
-- Display: **Space Grotesk** Bold
-- Body: **Inter** Regular/Medium
-- Mono: JetBrains Mono
-
-### Spacing & Radius
-```
-xs:4px sm:8px md:16px lg:24px xl:32px 2xl:48px
-radius: sm=8px md=12px lg=16px full=9999px
-```
+**Stack:** Next.js + HeroUI + Apple Motion | **DB:** MySQL | **Auth:** NextAuth.js Google OAuth
 
 ---
 
-## Section A — Login Screen
+## Page 1 — Login
 
 **Layout:** Centered card, max-w-sm, mx-auto, py-16
-**Components:**
-- Logo (scissors icon) + app name "BookCut" Space Grotesk Bold 32px
+- Logo (scissors) + "BookCut" Space Grotesk Bold 32px
 - Google OAuth button (full width, white bg, black border)
-- Divider with "OR" text
-- Email input with icon prefix
-- Password input with toggle visibility
-- Primary CTA button "Login" (gold bg, full width)
+- Divider "OR"
+- Email input (icon prefix)
+- Password input (toggle visibility)
+- Primary CTA "Login" (gold, full width)
 - "Don't have account? Sign Up" link
 
-**Animation:** Logo fades-in 400ms → form slides-up 300ms delay
+**Animation:** Logo fades-in 400ms → form slides-up 300ms
 
 ---
 
-## Section B — Home / Booking Screen
+## Page 2 — Home / Booking
 
 **Layout:** max-w-7xl mx-auto px-4
-**Components:**
 - Navbar: logo left, nav links center, profile avatar right
-- Search bar (full width, icon prefix)
-- Horizontal tabs: "Barber" / "Service" / "Produk"
+- Search bar (full width)
+- Tabs: "Barber" / "Service" / "Produk"
 - Grid: 1 col mobile, 2 tablet, 3 desktop
-- Barber Card: avatar circle, name, ⭐rating, price, "Book Now" button (gold, sm)
+- Barber Card: avatar circle, name, ⭐rating, price, "Book Now" (gold, sm)
 - Service Card: icon, name, duration, price, "Pilih" button
 
-**Animation:** Cards stagger fade-in 50ms delay each
+**Animation:** Cards stagger fade-in 50ms each
 
 ---
 
-## Section C — Booking Confirmation Modal
+## Page 3 — Booking Confirmation Modal
 
-**Layout:** Backdrop blur overlay, centered modal max-w-md
-**Components:**
+**Layout:** Backdrop blur, centered modal max-w-md
 - Header: "Konfirmasi Booking"
-- Barber name + lightning icon ⚡
-- Service name + original price (strikethrough) + discounted price
-- Membership selector dropdown
+- Barber name + ⚡ icon
+- Service name + price (strikethrough discount)
+- Membership tier dropdown
 - Date & time display
 - Notes textarea
-- Two buttons: "Batal" (outline) + "Konfirmasi" (gold)
+- "Batal" (outline) + "Konfirmasi" (gold)
 
 **Animation:** Backdrop fade + content scale(0.95→1) spring
 
 ---
 
-## Section D — Member Area / Profile
+## Page 4 — Member Area / Profile
 
 **Layout:** Back navbar, centered content
-**Components:**
 - Avatar + name + phone
-- 3 stat cards: Total Visits, Membership Status (badge), Days Remaining
-- Progress bar: "7/10 potong" with gold accent, 70% width
+- 3 stat cards: Total Visits, Membership (badge), Days Remaining
+- Progress bar: "7/10 potong" gold accent 70% width
 - "3 lagi dapat gratis!" text
-- Membership tier card (Basic/Premium/VIP) with expiry date
-- "Perpanjang" button
+- Membership tier card (VIP 12 Bulan) with expiry + "Perpanjang" button
 - Booking history list (avatar, service, date, status badge)
 
 **Animation:** Stat cards scale-in stagger, progress bar width-animate 600ms
 
 ---
 
-## Section E — Membership Pricing Screen
+## Page 5 — Membership Pricing
 
-**Layout:** Header "Pilih Membership", 3 cards horizontal scroll
-**Components:**
-- Basic (3 bulan): price, 5% discount, outline button
-- Premium (6 bulan): price, 10% discount, "POPULAR" badge, gold button
-- VIP (12 bulan): price, 15% discount, purple card elevated, purple button
+**Layout:** Header "Pilih Membership", 3 cards horizontal
+- Basic (3 Bulan): Rp 150.000, 5% diskon, outline button
+- Premium (6 Bulan): Rp 250.000, 10% diskon, "POPULAR" badge, gold button
+- VIP (12 Bulan): Rp 400.000, 15% diskon, purple elevated card, purple button
 
 **Animation:** Cards scale-in stagger, "POPULAR" badge pulse
 
 ---
 
-## Section F — Product List Screen
+## Page 6 — Product List
 
 **Layout:** Header "🛍️ Produk", search bar, filter chips
-**Components:**
-- Chip filters: "Semua", "Pomade", "Aksesoris", "Shampoo"
+- Chips: "Semua", "Pomade", "Aksesoris", "Shampoo"
 - Grid: 2 col mobile, 3 desktop
-- Product Card: image, name, price, stock badge, "Beli" button
+- Product Card: image, name, price, stock badge, "Beli" button (gold, sm)
 
 **Animation:** Cards stagger fade-in 50ms
 
 ---
 
-## Section G — Product Detail Screen
+## Page 7 — Product Detail
 
-**Layout:** Navbar back + cart icon, scrollable content
-**Components:**
+**Layout:** Navbar back + cart icon, scrollable
 - Image gallery with zoom
-- Product name (Space Grotesk Bold 24px)
-- Star rating + review count
+- Product name Space Grotesk Bold 24px
+- ⭐ rating + review count
 - Price (gold accent)
 - Stock badge (green if >0, red if 0)
 - Description text
-- Quantity selector (- / 1 / +)
-- "Tambah Cart" button (gold, full width)
+- Qty selector (- / 1 / +)
+- "Tambah Cart" (gold, full width)
 - Review section below
 
 **Animation:** Image fade-in, price slide-up, button scale-in
 
 ---
 
-## Section H — Admin Dashboard
+## Page 8 — Admin Dashboard
 
 **Layout:** Navbar "📊 Dashboard" + admin avatar
-**Components:**
-- 3 stat cards row: Total Bookings, Revenue, New Members
+- 3 stat cards: Total Bookings, Revenue, New Members
 - Tabs: "Booking" | "Members" | "Products" | "Revenue"
 - Booking table: Customer | Barber | Service | Date | Status | Actions
 - Status badges: PENDING=warning, CONFIRMED=success, COMPLETED=info, CANCELLED=danger
-- Pagination at bottom
+- Pagination
 
 **Animation:** Stat cards scale-in stagger, table rows fade-in
 
 ---
 
-## Section I — Admin Member Tracking
+## Page 9 — Admin Member Tracking
 
 **Layout:** Header "👥 Member Management", search bar
-**Components:**
-- Table: Nama | Kunjungan | Member Tier | Status | Action
-- Progress mini-bar in kunjungan column (X/10)
+- Table: Nama | Kunjungan (progress mini-bar) | Member Tier (badge) | Status | Action
 - Tier badge: Basic=blue, Premium=gold, VIP=purple
-- Free cut badge: ✅ "Gratis" (green)
+- Free cut badge: ✅ "Gratis" green
 - Detail/Edit/View action buttons
 
 **Animation:** Rows fade-in stagger, badge pop on free cut
 
 ---
 
-## Section J — Admin Master Products
+## Page 10 — Admin Master Products
 
 **Layout:** Header "📦 Master Produk", "+ Tambah" button
-**Components:**
 - Table: Image | Name | Price | Stock | Category | Actions
 - Category chip: pomade, accessories, shampoo
 - Edit/Delete action buttons
-- Add button (gold, top right)
 
 **Animation:** Table rows fade-in, button pulse on add
 
 ---
 
-## Section K — Admin Master Member Prices
+## Page 11 — Admin Master Member Prices
 
 **Layout:** Header "💎 Master Member Price"
-**Components:**
-- 3 tier cards: Basic (3 bulan), Premium (6 bulan), VIP (12 bulan)
+- 3 tier cards: Basic (3 Bulan), Premium (6 Bulan), VIP (12 Bulan)
 - Each card: price input, discount input, "Simpan" button
-- Current values displayed
 
 **Animation:** Cards scale-in stagger, input focus glow
 
 ---
 
-## Section L — Barber Panel
+## Page 12 — Barber Panel
 
 **Layout:** Back navbar "← Jadwal Hari Ini"
-**Components:**
 - Date display
-- Booking list cards: customer name + service, time range, visit count badge
-- "Selesai" action button per booking
+- Booking cards: customer name + service, time range, visit count badge
+- "Selesai" button per booking
 - Toggle "⚡ Tersedia" at bottom
 
 **Animation:** Cards fade-in, toggle slide
 
 ---
 
-## HeroUI Component Reference
+## Design Tokens
 
-| Component | Usage |
-|-----------|-------|
-| Navbar | Sticky, blur backdrop, role-based items |
-| Card | Elevated surface, hover shadow lift |
-| Button | Primary (gold), secondary (outline), danger (red), sizes sm/md/lg |
-| Input | With icon prefix, validation error |
-| Select | Dropdown for membership tier, barber |
-| DatePicker | Calendar booking |
-| TimeInput | Slot selection |
-| Textarea | Notes input |
-| Table | Admin lists with pagination |
-| Modal | Backdrop blur, scale animation |
-| Badge | Status colors, tier colors |
-| Chip | Filter tags |
-| Progress | Visit tracking, booking progress |
-| Spinner | Loading state |
-| Skeleton | Shimmer placeholder |
-| Tabs | Filter/section switcher |
-| Image | Product gallery |
-| Avatar | Circle, initials-based |
-| Counter | Qty selector (- / +) |
-| Dropdown | Profile menu, filter |
-| Popover | Quick actions |
-| Toast | Success/error notification |
-| Statistic | Visit count, revenue |
-
----
-
-## Apple Motion Animation System
-
-### Page Transitions
+### Colors
 ```
-Entry:    slide-in-right 300ms ease-out
-Exit:     slide-out-left 250ms ease-in
-Modal:    fade-in + scale(0.95→1) 200ms spring
-Back:     slide-in-left 250ms ease-out
+Primary: #1B1B1B    Accent: #F5A623    BG: #FAFAFA
+Surface: #FFFFFF    Border: #E5E5E5    Text: #1A1A1A
+Success: #2ECC71    Danger: #E74C3C    Warning: #F39C12
+Membership: #9B59B6
 ```
 
-### Micro-interactions
-```
-Button press:    scale(1→0.97) 100ms spring
-Card hover:      scale(1→1.02) + shadow-lift 200ms ease
-List item:       fade-in + slide-up 300ms stagger(50ms)
-Image load:      fade-in 400ms ease
-Tab switch:      cross-fade 200ms ease
-Skeleton pulse:  opacity 0.4→1 loop 1.5s ease-in-out
-Progress bar:    width animate 600ms ease-out
-Badge pop:       scale(0→1) spring on status change
-```
+### Typography
+- Display: Space Grotesk Bold
+- Body: Inter Regular/Medium
+- Mono: JetBrains Mono
 
-### Easing Curves
-```
-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1)
-ease-out:    cubic-bezier(0, 0, 0.2, 1)
-spring:      cubic-bezier(0.34, 1.56, 0.64, 1)
-sharp:       cubic-bezier(0.4, 0, 0.6, 1)
-```
+### HeroUI Components Used
+Navbar · Card · Button · Input · Select · DatePicker · TimeInput · Textarea · Table · Modal · Badge · Chip · Progress · Spinner · Skeleton · Tabs · Image · Avatar · Counter · Dropdown · Popover · Toast · Statistic
 
-### Performance
-- GPU-accelerated only (transform + opacity)
-- will-change: transform on animated elements
-- respects prefers-reduced-motion
-- Max 60fps
-
----
-
-## Responsive Breakpoints
+### Apple Motion Animations
 ```
-Mobile:  < 768px   → Single column, bottom nav
-Tablet:  768-1024  → 2-column grid, side nav
-Desktop: > 1024px  → Full sidebar + content
+Page transitions: slide-in-right 300ms ease-out
+Modal: fade + scale(0.95→1) 200ms spring
+Button press: scale(1→0.97) 100ms spring
+Card hover: scale(1→1.02) + shadow-lift 200ms ease
+List items: fade-in + slide-up 300ms stagger(50ms)
+Progress bar: width animate 600ms ease-out
+Badge pop: scale(0→1) spring on status change
+
+Easing: ease-in-out cubic-bezier(0.4,0,0.2,1)
+        spring cubic-bezier(0.34,1.56,0.64,1)
 ```
 
----
+### Responsive
+```
+Mobile: <768px → single column, bottom nav
+Tablet: 768-1024 → 2-col grid
+Desktop: >1024px → sidebar + content
+```
 
-## Icons & Assets
+### Icons & Assets
 - Icons: Lucide React
 - Avatars: DiceBear initials
 - Google OAuth icon (official)
